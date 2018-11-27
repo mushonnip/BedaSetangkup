@@ -1,2 +1,0 @@
-
-    cin >> karyawan[terisi].sta
