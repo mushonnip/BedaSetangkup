@@ -3,9 +3,10 @@
 
 using namespace std;
 
-int elements = 1;
+int elements = 2;
 string key;
 int terisi = 2;
+bool balik = false;
 struct data_kar
 {
     string jabatan;
@@ -54,6 +55,7 @@ void cari()
     {
         if (key == karyawan[i].nama)
         {
+            cout << "\n########## Data ditemukan ##########\n";
             cout << "Nama: " << karyawan[i].nama << endl;
             cout << "Umur: " << karyawan[i].umur << endl;
             cout << "Golongan Darah: " << karyawan[i].goldar << endl;
@@ -73,16 +75,6 @@ void cari()
 void tampil()
 {
     int i;
-    for (int i = 0; i <= 1; i++)
-    {
-        karyawan[i].nama = nama[i];
-        karyawan[i].jabatan = jabatan[i];
-        karyawan[i].umur = umur[i];
-        karyawan[i].goldar = goldar[i];
-        karyawan[i].alamat = alamat[i];
-        karyawan[i].status = status[i];
-        karyawan[i].jk = jk[i];
-    }
     for (int i = 0; i <= elements; i++)
     {
         cout << "[" << i + 1 << "] =========" << endl;
@@ -98,6 +90,18 @@ void tampil()
 
 int main()
 {
+    
+    for (int i = 0; i <= elements; i++)
+    {
+        karyawan[i].nama = nama[i];
+        karyawan[i].jabatan = jabatan[i];
+        karyawan[i].umur = umur[i];
+        karyawan[i].goldar = goldar[i];
+        karyawan[i].alamat = alamat[i];
+        karyawan[i].status = status[i];
+        karyawan[i].jk = jk[i];
+    }
+
     cout << "\n********* Pilih Menu *********\n";
     cout << "1. Lihat Semua Data\n";
     cout << "2. Cari Data\n";
