@@ -102,13 +102,13 @@ void cari()
                 karyawan[i] = karyawan[i + 1];
             }
             elements--;
-            system("clear");
+            //system("clear");
             cout<<"--------- Berhasil Dihapus ------------\n";
         }
     }
     if (ketemu != true)
     {
-        system("clear");
+        //system("clear");
         cout << "########## Data tidak ditemukan ##########\n";
     }
 }
@@ -156,4 +156,5 @@ int main()
 {
     refresh();
     menu();
+    return(0);
 }
