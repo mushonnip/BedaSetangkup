@@ -46,34 +46,8 @@ void tambah()
     elements++;
     cout << "++++++++++ Tambah data sukses!! ++++++++++\n\n";
 }
-void cari()
-{
-    cout << "Cari data: ";
-    cin >> key;
-    for (int i = 0; i < elements; i++)
-    {
-        if (key == karyawan[i].nama)
-        {
-            cout << "Nama: " << karyawan[i].nama << endl;
-            cout << "Umur: " << karyawan[i].umur << endl;
-            cout << "Golongan Darah: " << karyawan[i].goldar << endl;
-            cout << "Alamat: " << karyawan[i].alamat << endl;
-            cout << "Status: " << karyawan[i].status << endl;
-            cout << "Jenis Kelamin: " << karyawan[i].jk << endl;
-            cout << "Jabatan : " << karyawan[i].jabatan << endl;
-            cout << endl;
-        }
-        else if (key != karyawan[i].nama)
-        {
-            cout << "########## Data tidak ditemukan ##########\n";
-        }
-    }
-}
-
-void tampil()
-{
-    int i;
-    for (int i = 0; i <= 1; i++)
+void refresh(){
+ for (int i = 0; i <= 1; i++)
     {
         karyawan[i].nama = nama[i];
         karyawan[i].jabatan = jabatan[i];
@@ -83,6 +57,38 @@ void tampil()
         karyawan[i].status = status[i];
         karyawan[i].jk = jk[i];
     }
+}
+void cari()
+{
+    bool ketemu = false;
+    refresh();
+    cout << "Cari data: ";
+    cin >> key;
+    for (int i = 0; i < (elements+1); i++)
+    {
+        if (key == karyawan[i].nama)
+        {
+            cout << "########## Data ditemukan ##########\n";
+            cout << "Nama: " << karyawan[i].nama << endl;
+            cout << "Umur: " << karyawan[i].umur << endl;
+            cout << "Golongan Darah: " << karyawan[i].goldar << endl;
+            cout << "Alamat: " << karyawan[i].alamat << endl;
+            cout << "Status: " << karyawan[i].status << endl;
+            cout << "Jenis Kelamin: " << karyawan[i].jk << endl;
+            cout << "Jabatan : " << karyawan[i].jabatan << endl;
+            cout << endl;
+            ketemu = true;
+        }
+    }
+    if (ketemu!=true){
+        cout << "########## Data tidak ditemukan ##########\n";
+    }
+}
+
+void tampil()
+{
+    int i;
+    refresh();
     for (int i = 0; i <= elements; i++)
     {
         cout << "[" << i + 1 << "] =========" << endl;
