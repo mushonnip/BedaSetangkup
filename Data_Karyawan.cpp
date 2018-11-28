@@ -51,6 +51,7 @@ void tambah()
     cin >> karyawan[elements + 1].jabatan;
     //terisi++;
     elements++;
+    system("clear");
     cout << "++++++++++ Tambah data sukses!! ++++++++++\n\n";
 }
 void refresh()
@@ -92,7 +93,7 @@ void cari()
     }
     if (ketemu == true)
     {
-        cout<<"Hapus data? (y/n)"
+        cout<<"Hapus data? (y/n)";
         cin>>hapus;
         if (hapus == 'y')
         {
@@ -101,10 +102,13 @@ void cari()
                 karyawan[i] = karyawan[i + 1];
             }
             elements--;
+            system("clear");
+            cout<<"--------- Berhasil Dihapus ------------\n";
         }
     }
     if (ketemu != true)
     {
+        system("clear");
         cout << "########## Data tidak ditemukan ##########\n";
     }
 }
@@ -127,7 +131,7 @@ void menu()
 {
     cout << "\n********* Pilih Menu *********\n";
     cout << "1. Lihat Semua Data\n";
-    cout << "2. Cari Data\n";
+    cout << "2. Cari dan Hapus Data\n";
     cout << "3. Tambah Data\n";
 
     int pilih = 0;
