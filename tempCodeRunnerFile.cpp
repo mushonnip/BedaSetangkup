@@ -1,3 +1,11 @@
+/*
+Kelompok 5 (Data Karyawan)
+Abu Mushonnip [1805001]
+Ade Irawan [1805003]
+Aldini Eka Putri [1805004]
+Faisal Basri [18050--]
+*/
+
 #include <iostream>
 #include <string>
 
@@ -5,7 +13,6 @@ using namespace std;
 
 int elements = 1;
 string key;
-int terisi = 2;
 struct data_kar
 {
     string jabatan;
@@ -31,18 +38,18 @@ void tambah()
 {
     cout << "\nTambah data: \n";
     cout << "Nama: ";
-    cin >> karyawan[terisi].nama;
+    cin >> karyawan[elements + 1].nama;
     cout << "Umur: ";
-    cin >> karyawan[terisi].umur;
+    cin >> karyawan[elements + 1].umur;
     cout << "Gender: ";
-    cin >> karyawan[terisi].jk;
+    cin >> karyawan[elements + 1].jk;
     cout << "Alamat: ";
-    cin >> karyawan[terisi].alamat;
+    cin >> karyawan[elements + 1].alamat;
     cout << "Status: ";
-    cin >> karyawan[terisi].status;
+    cin >> karyawan[elements + 1].status;
     cout << "Jabatan: ";
-    cin >> karyawan[terisi].jabatan;
-    terisi++;
+    cin >> karyawan[elements + 1].jabatan;
+    //terisi++;
     elements++;
     cout << "++++++++++ Tambah data sukses!! ++++++++++\n\n";
 }
@@ -61,8 +68,7 @@ void refresh()
 }
 void cari()
 {
-    bool ketemu = false;
-    refresh();
+    bool ketemu, hapus = false;
     cout << "Cari data: ";
     cin >> key;
     for (int i = 0; i < (elements + 1); i++)
@@ -80,11 +86,13 @@ void cari()
             cout << endl;
             ketemu = true;
         }
-
-        while (ketemu == true)
+    }
+    if (ketemu == true)
+    {
+        cout << "Hapus data?\n";
+        cin >> key;
+        for (int i = 0; i < (elements + 1); i++)
         {
-            cout << "Hapus data?\n";
-            cin >> key;
             if (key == "y")
             {
                 karyawan[i].nama = karyawan[i + 1].nama;
@@ -94,6 +102,7 @@ void cari()
                 karyawan[i].status = karyawan[i + 1].status;
                 karyawan[i].jk = karyawan[i + 1].jk;
                 karyawan[i].jabatan = karyawan[i + 1].jabatan;
+                elements--;
             }
         }
     }
@@ -105,8 +114,6 @@ void cari()
 
 void tampil()
 {
-    int i;
-    refresh();
     for (int i = 0; i <= elements; i++)
     {
         cout << "[" << i + 1 << "] =========" << endl;
@@ -119,8 +126,7 @@ void tampil()
         cout << endl;
     }
 }
-
-int main()
+void menu()
 {
     cout << "\n********* Pilih Menu *********\n";
     cout << "1. Lihat Semua Data\n";
@@ -133,14 +139,20 @@ int main()
     {
     case 1:
         tampil();
-        return main();
+        return menu();
         break;
     case 2:
         cari();
+        return menu();
         break;
     case 3:
         tambah();
-        return main();
+        return menu();
         break;
     }
+}
+int main()
+{
+    refresh();
+    menu();
 }

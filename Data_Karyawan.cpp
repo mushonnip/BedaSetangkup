@@ -1,3 +1,11 @@
+/*
+Kelompok 5 (Data Karyawan)
+Abu Mushonnip [1805001]
+Ade Irawan [1805003]
+Aldini Eka Putri [1805004]
+Faisal Basri [1805010]
+*/
+
 #include <iostream>
 #include <string>
 
@@ -5,7 +13,6 @@ using namespace std;
 
 int elements = 1;
 string key;
-int terisi = 2;
 struct data_kar
 {
     string jabatan;
@@ -26,23 +33,23 @@ string status[10] = {"Single", "Jones"};
 char jk[10] = {'L', 'L'};
 
 data_kar karyawan[10];
-        
+
 void tambah()
 {
     cout << "\nTambah data: \n";
     cout << "Nama: ";
-    cin >> karyawan[terisi].nama;
+    cin >> karyawan[elements + 1].nama;
     cout << "Umur: ";
-    cin >> karyawan[terisi].umur;
+    cin >> karyawan[elements + 1].umur;
     cout << "Gender: ";
-    cin >> karyawan[terisi].jk;
+    cin >> karyawan[elements + 1].jk;
     cout << "Alamat: ";
-    cin >> karyawan[terisi].alamat;
+    cin >> karyawan[elements + 1].alamat;
     cout << "Status: ";
-    cin >> karyawan[terisi].status;
+    cin >> karyawan[elements + 1].status;
     cout << "Jabatan: ";
-    cin >> karyawan[terisi].jabatan;
-    terisi++;
+    cin >> karyawan[elements + 1].jabatan;
+    //terisi++;
     elements++;
     cout << "++++++++++ Tambah data sukses!! ++++++++++\n\n";
 }
@@ -62,6 +69,8 @@ void refresh()
 void cari()
 {
     bool ketemu = false;
+    int ind = 0;
+    char hapus;
     cout << "Cari data: ";
     cin >> key;
     for (int i = 0; i < (elements + 1); i++)
@@ -77,24 +86,21 @@ void cari()
             cout << "Jenis Kelamin: " << karyawan[i].jk << endl;
             cout << "Jabatan : " << karyawan[i].jabatan << endl;
             cout << endl;
+            ind=i;
             ketemu = true;
         }
-
-        if (ketemu == true)
+    }
+    if (ketemu == true)
+    {
+        cout<<"Hapus data? (y/n)"
+        cin>>hapus;
+        if (hapus == 'y')
         {
-            cout << "Hapus data?\n";
-            cin >> key;
-            if (key == "y")
+            for (int i = ind; i < (elements + 1); i++)
             {
-                karyawan[i].nama = karyawan[i + 1].nama;
-                karyawan[i].umur = karyawan[i + 1].umur;
-                karyawan[i].goldar = karyawan[i + 1].goldar;
-                karyawan[i].alamat = karyawan[i + 1].alamat;
-                karyawan[i].status = karyawan[i + 1].status;
-                karyawan[i].jk = karyawan[i + 1].jk;
-                karyawan[i].jabatan = karyawan[i + 1].jabatan;
-                elements--;
+                karyawan[i] = karyawan[i + 1];
             }
+            elements--;
         }
     }
     if (ketemu != true)
@@ -105,7 +111,6 @@ void cari()
 
 void tampil()
 {
-    int i;
     for (int i = 0; i <= elements; i++)
     {
         cout << "[" << i + 1 << "] =========" << endl;
@@ -118,7 +123,8 @@ void tampil()
         cout << endl;
     }
 }
-void menu(){
+void menu()
+{
     cout << "\n********* Pilih Menu *********\n";
     cout << "1. Lihat Semua Data\n";
     cout << "2. Cari Data\n";
