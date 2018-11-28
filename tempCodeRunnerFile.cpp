@@ -26,7 +26,7 @@ string status[10] = {"Single", "Jones"};
 char jk[10] = {'L', 'L'};
 
 data_kar karyawan[10];
-        
+
 void tambah()
 {
     cout << "\nTambah data: \n";
@@ -62,6 +62,7 @@ void refresh()
 void cari()
 {
     bool ketemu = false;
+    refresh();
     cout << "Cari data: ";
     cin >> key;
     for (int i = 0; i < (elements + 1); i++)
@@ -80,7 +81,7 @@ void cari()
             ketemu = true;
         }
 
-        if (ketemu == true)
+        while (ketemu == true)
         {
             cout << "Hapus data?\n";
             cin >> key;
@@ -93,7 +94,6 @@ void cari()
                 karyawan[i].status = karyawan[i + 1].status;
                 karyawan[i].jk = karyawan[i + 1].jk;
                 karyawan[i].jabatan = karyawan[i + 1].jabatan;
-                elements--;
             }
         }
     }
@@ -106,6 +106,7 @@ void cari()
 void tampil()
 {
     int i;
+    refresh();
     for (int i = 0; i <= elements; i++)
     {
         cout << "[" << i + 1 << "] =========" << endl;
@@ -118,7 +119,9 @@ void tampil()
         cout << endl;
     }
 }
-void menu(){
+
+int main()
+{
     cout << "\n********* Pilih Menu *********\n";
     cout << "1. Lihat Semua Data\n";
     cout << "2. Cari Data\n";
@@ -130,20 +133,14 @@ void menu(){
     {
     case 1:
         tampil();
-        return menu();
+        return main();
         break;
     case 2:
         cari();
-        return menu();
         break;
     case 3:
         tambah();
-        return menu();
+        return main();
         break;
     }
-}
-int main()
-{
-    refresh();
-    menu();
 }
