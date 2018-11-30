@@ -29,7 +29,7 @@ string nama[10] = {"Abu", "Ade"};
 int umur[10] = {19, 20};
 string goldar[10] = {"O", "A"};
 string alamat[10] = {"Indramayu", "Indramayu"};
-string status[10] = {"Single", "Jones"};
+string status[10] = {"Mbuh", "Mbuh"};
 char jk[10] = {'L', 'L'};
 
 data_kar karyawan[10];
