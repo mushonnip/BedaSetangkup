@@ -16,6 +16,7 @@ int idxKosong = 1;
 string key;
 bool ketemu = true;
 char balik;
+int dex;
 struct data_kar
 {
     string jabatan;
@@ -90,7 +91,18 @@ void raKetemu()
         }
 }
 void diedit(){
+    ndas();
     cout << "[Berhasil Diedit]\n";
+    cout << "Kembali ke menu? (y/n)";
+        cin >> balik;
+        if (balik == 'y')
+        {
+            return menu();
+        }
+}
+void dihapus(){
+    ndas();
+    cout << "[Berhasil Dihapus]\n";
     cout << "Kembali ke menu? (y/n)";
         cin >> balik;
         if (balik == 'y')
@@ -145,7 +157,7 @@ void cari()
                 }
                 idxKosong--;
                 //system("clear");
-                cout << "--------- Berhasil Dihapus ------------\n";
+                return dihapus();
             }
             else if (hapus== 'n'){
                 return menu();
@@ -153,20 +165,20 @@ void cari()
         }
         else if (pilih == '2')
         {
-            for (int i = ind; i < idxKosong; i++)
+            for (int i = ind; i < (idxKosong+1); i++)
             {
                 cout << "Nama: ";
-                cin >> karyawan[anu - 1].nama;
+                cin >> karyawan[ind].nama;
                 cout << "Umur: ";
-                cin >> karyawan[anu - 1].umur;
+                cin >> karyawan[ind].umur;
                 cout << "Gender: ";
-                cin >> karyawan[anu - 1].jk;
+                cin >> karyawan[ind].jk;
                 cout << "Alamat: ";
-                cin >> karyawan[anu - 1].alamat;
+                cin >> karyawan[ind].alamat;
                 cout << "Status: ";
-                cin >> karyawan[anu - 1].status;
+                cin >> karyawan[ind].status;
                 cout << "Jabatan: ";
-                cin >> karyawan[anu - 1].jabatan;
+                cin >> karyawan[ind].jabatan;
                 //idxKosong++;
             }
             //idxKosong--;
