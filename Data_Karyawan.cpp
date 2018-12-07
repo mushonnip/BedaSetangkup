@@ -9,6 +9,7 @@ Faisal Basri [1805010]
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -84,31 +85,33 @@ void raKetemu()
     ndas();
     cout << "[404 Not Found]\n";
     cout << "Kembali ke menu? (y/n)";
-        cin >> balik;
-        if (balik == 'y')
-        {
-            return menu();
-        }
+    cin >> balik;
+    if (balik == 'y')
+    {
+        return menu();
+    }
 }
-void diedit(){
+void diedit()
+{
     ndas();
     cout << "[Berhasil Diedit]\n";
     cout << "Kembali ke menu? (y/n)";
-        cin >> balik;
-        if (balik == 'y')
-        {
-            return menu();
-        }
+    cin >> balik;
+    if (balik == 'y')
+    {
+        return menu();
+    }
 }
-void dihapus(){
+void dihapus()
+{
     ndas();
     cout << "[Berhasil Dihapus]\n";
     cout << "Kembali ke menu? (y/n)";
-        cin >> balik;
-        if (balik == 'y')
-        {
-            return menu();
-        }
+    cin >> balik;
+    if (balik == 'y')
+    {
+        return menu();
+    }
 }
 void cari()
 {
@@ -159,13 +162,14 @@ void cari()
                 //system("clear");
                 return dihapus();
             }
-            else if (hapus== 'n'){
+            else if (hapus == 'n')
+            {
                 return menu();
             }
         }
         else if (pilih == '2')
         {
-            for (int i = ind; i < (idxKosong+1); i++)
+            for (int i = ind; i < (idxKosong + 1); i++)
             {
                 cout << "Nama: ";
                 cin >> karyawan[ind].nama;
