@@ -13,7 +13,11 @@ Faisal Basri [1805010]
 
 using namespace std;
 
+<<<<<<< HEAD
 int jumStruct = 10; //jumlah data struct
+=======
+int idx = 10; //jumlah data struct
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
 char balik;
 int dex; //indeks kosong
 bool urut = false;
@@ -46,7 +50,11 @@ data_temp temp[1];
 void menu();
 void simpan();
 
+<<<<<<< HEAD
 void bersihkanKonsol() //untuk menghapus konsol atau membersihkan isi
+=======
+void bersihkanKonsol() //prosedur untuk menghapus akonsoltau membersihkan isi
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
 {
     system("clear"); //mengirimkan perintah "clear" ke konsol linux
 }
@@ -63,7 +71,11 @@ void tambah() //prosedur menambah data karyawan
 {
     bersihkanKonsol();
     kepala();
+<<<<<<< HEAD
     for (int i = 0; i < jumStruct; i++)
+=======
+    for (int i = 0; i < idx; i++)
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
     {
         if (karyawan[i].nama == "")
         {
@@ -126,6 +138,10 @@ void terHapus()
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
 void cari()
 {
     kepala();
@@ -179,7 +195,10 @@ void cari()
         switch (pilih)
         {
         case 1:
+<<<<<<< HEAD
 //Menghapus Data
+=======
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
             cout << "Hapus data? (y/n)";
             cin >> hapus;
             if (hapus == 'y')
@@ -198,7 +217,10 @@ void cari()
                 return menu();
             }
         case 2:
+<<<<<<< HEAD
 //Mengedit data
+=======
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
             cout << "Nama: ";
             cin >> karyawan[ind].nama;
             cout << "Umur: ";
@@ -213,11 +235,15 @@ void cari()
             cin >> karyawan[ind].jabatan;
             simpan();
             return terEdit();
+<<<<<<< HEAD
 //Kembali ke menu
+=======
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
         case 3:
             return menu();
         }
     }
+<<<<<<< HEAD
     if (ketemu != true) //jika yang dicari tidak ada
     {
         return tidakValid();
@@ -254,6 +280,43 @@ void baca_data()
     }
     else if (infile.is_open())
     {
+=======
+    if (ketemu != true)
+    {
+        return tidakValid();
+    }
+}
+void parse_baris(string baris, int index)
+{
+    stringstream ss_baris(baris);
+    string tem_umur;
+    while (ss_baris.good())
+    {
+        getline(ss_baris, karyawan[index].nama, '|');
+        getline(ss_baris, tem_umur, '|');
+        getline(ss_baris, karyawan[index].jk, '|');
+        getline(ss_baris, karyawan[index].alamat, '|');
+        getline(ss_baris, karyawan[index].jabatan, '|');
+        getline(ss_baris, karyawan[index].status, '|');
+        karyawan[index].umur = atoi(tem_umur.c_str());
+        index++;
+    }
+    dex = index;
+}
+
+void baca_data()
+{
+    string data_perbaris;
+    int no_index = 0;
+    ifstream infile;
+    infile.open("file.dat", ios::app | ios::in | ios::out);
+    if (infile.fail())
+    {
+        cout << "File Tidak Ada Dan Tidak Dapat Membuat File " << endl;
+    }
+    else if (infile.is_open())
+    {
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
         while (getline(infile, data_perbaris))
         {
             parse_baris(data_perbaris, no_index);
@@ -278,7 +341,11 @@ void tampil()
          << setw(10) << left << "Status"
          << setw(10) << left << "Jabatan" << endl;
     cout << "=============================================================\n";
+<<<<<<< HEAD
     for (i = 0; i < jumStruct; i++)
+=======
+    for (i = 0; i < idx; i++)
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
     {
         if (urut == true)
         {
@@ -320,8 +387,13 @@ void tampil()
             cout << karyawan[i].jk << setw(5) << left;
             cout << karyawan[i].umur << setw(13) << left;
             cout << karyawan[i].alamat << setw(10) << left;
+<<<<<<< HEAD
             cout << karyawan[i].status << setw(10) << left;
             cout << karyawan[i].jabatan << endl;
+=======
+            cout << karyawan[i].jabatan << setw(10) << left;
+            cout << karyawan[i].status << endl;
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
             no++;
             
         }
@@ -336,7 +408,11 @@ void simpan()
 {
     ofstream outfile;
     outfile.open("file.dat");
+<<<<<<< HEAD
     for (int i = 0; i < jumStruct; i++)
+=======
+    for (int i = 0; i < idx; i++)
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
     {
         if (karyawan[i].nama != "")
         {
@@ -397,4 +473,8 @@ int main()
 {
     menu();
     return 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b8349c394031c9d8d700941b6c2d161bc207d8ea
