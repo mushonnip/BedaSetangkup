@@ -5,7 +5,6 @@ Ade Irawan [1805003]
 Aldini Eka Putri [1805004]
 Faisal Basri [1805010]
 */
-////////
 
 #include <iostream>
 #include <string>
